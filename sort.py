@@ -1,5 +1,70 @@
 import random
 
+def insertion_sort(a):
+    l = len(a)
+    for i in range(1, l):
+        tmp = a[i]
+        j = i - 1
+        while a[j] > tmp and j >= 0:
+            a[j+1] = a[j]
+            j -= 1
+        a[j+1] = tmp
+
+
+def flash_sort(a, m = None):
+    n = len(a)
+    if n < 2:
+        return
+
+    if not m:
+        m = int(0.45 * n)
+
+    l = [0] * m
+    i_max = 0
+    min = a[0]
+
+    for i in range(1, n):
+        if a[i] > a[i_max]:
+            i_max = i
+        elif a[i] < min:
+            min = a[i]
+
+    if a[i_max] == min:
+        return
+
+    c = (m - 1) / (a[i_max] - min)
+
+    for i in range(n):
+        k = int((a[i] - min) * c)
+        l[k] += 1
+
+    for i in range(1, m):
+        l[i] += l[i-1]
+
+
+    a[i_max], a[0] = a[0], a[i_max]
+    count = 0
+    k = m - 1
+    j = 0
+
+    while count < n - 1:
+        while j > (l[k] - 1):
+            j += 1
+            k = int((a[j] - min) * c)
+
+        hold = a[j]
+        while j != l[k]:
+            k = int((hold - min) * c)
+            l[k] -= 1
+            tmp = a[l[k]]
+            a[l[k]] = hold
+            hold = tmp
+            count += 1
+
+
+    insertion_sort(a)
+
+
 def heapify(a, n, i):
     tmp = a[i]
     while True:
@@ -22,7 +87,6 @@ def heapify(a, n, i):
         else:
             a[i] = tmp
             break
-
 
 
 def heap_sort(a):
@@ -64,6 +128,7 @@ def qsort(a, left, right):
 
     qsort(a, left, j)
     qsort(a, i, right)
+
 
 def merge_sort(a, left, right):
     if left >= right:
@@ -112,6 +177,7 @@ def check_order(a, increase=True):
         if (a[i] > a[i+1]) == increase:
             return False
     return True
+
 
 def init_arr(a, min_value = 0, max_value=100):
     l = len(a)

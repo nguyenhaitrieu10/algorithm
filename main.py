@@ -1,10 +1,11 @@
 import sort
 
-a = [0] * 45
+N = 45
+a = [0] * N
 sort.init_arr(a)
 print(a)
 
-sort.merge_sort(a, 0, len(a) - 1)
+sort.flash_sort(a)
 
 print(a)
 print(sort.check_order(a))
