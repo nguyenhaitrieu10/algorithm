@@ -1,4 +1,3 @@
-import random
 
 def insertion_sort(a):
     l = len(a)
@@ -60,7 +59,6 @@ def flash_sort(a, m = None):
             a[l[k]] = hold
             hold = tmp
             count += 1
-
 
     insertion_sort(a)
 
@@ -130,13 +128,17 @@ def qsort(a, left, right):
     qsort(a, i, right)
 
 
-def merge_sort(a, left, right):
+def merge_sort(a):
+    return msort(a, 0, len(a) - 1)
+
+
+def msort(a, left, right):
     if left >= right:
         return
 
     mid = (right + left) // 2
-    merge_sort(a, left, mid)
-    merge_sort(a, mid + 1, right)
+    msort(a, left, mid)
+    msort(a, mid + 1, right)
 
     tmp = [0] * (right - left + 1)
 
@@ -170,17 +172,3 @@ def merge_sort(a, left, right):
     for i in range(0, right - left+ 1):
         a[i + left] = tmp[i]
 
-
-def check_order(a, increase=True):
-    l = len(a)
-    for i in range(l-1):
-        if (a[i] > a[i+1]) == increase:
-            return False
-    return True
-
-
-def init_arr(a, min_value = 0, max_value=100):
-    l = len(a)
-    for i in range(l):
-        a[i] = random.randint(min_value, max_value)
-    return a
