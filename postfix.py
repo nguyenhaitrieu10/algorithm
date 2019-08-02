@@ -67,21 +67,35 @@ def covert_to_postfix(a):
     return output
 
 
+def get_number_operand(oper):
+    if oper in ('+', '-', '*', '/'):
+        return 2
+    if oper == '$':
+        return 1
+
+    return 0
+
+
 def cal_postfix(postfix):
     output = []
     for c in postfix:
         if is_operand(c):
             output.append(c)
         else:
-            b = output.pop()
-            a = output.pop()
-            result = do_calculate(a, b, c)
+            num_operand = get_number_operand(c)
+            if num_operand == 2:
+                b = output.pop()
+                a = output.pop()
+                result = do_calculate2(a, b, c)
+            else:
+                a = output.pop()
+                result = do_calculate1(a, c)
             output.append(result)
 
     return output.pop()
 
 
-def do_calculate(a, b, oper):
+def do_calculate2(a, b, oper):
     a = float(a)
     b = float(b)
 
@@ -93,6 +107,14 @@ def do_calculate(a, b, oper):
         return a * b
     elif oper == '/':
         return a / b
+
+
+def do_calculate1(a, oper):
+    a = float(a)
+    if oper == '$':
+        return -a
+
+    return a
 
 
 def calculate(s):
