@@ -9,7 +9,7 @@ def check_order(a, increase=True):
     return True
 
 
-def init_arr(length = 0, min_value = -100, max_value=100):
+def init_arr(length, min_value = -100, max_value=100):
     a = [0] * length
 
     for i in range(length):

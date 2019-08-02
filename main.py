@@ -1,7 +1,18 @@
 import test
 import postfix
+import search
+import helper
+import sort
+import adhoc
 
-s = "  -5.5  /2 + -3*(4/-8 -2)  "
-s = postfix.calculate(s)
-print(s)
+N = 20
+# a = [0] * N
+a = helper.init_arr(N)
+a.sort()
+strange = 9
+b = a[:strange]
+c = a[strange:]
+a = c + b
+print(a)
+print(adhoc.sea_search(a, a[11]))
 
