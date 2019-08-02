@@ -3,18 +3,16 @@ def find_strange_point(a):
     left = 0
     right = len(a) - 1
     margin = right
-    find = -1
     while left <= right:
         mid = left + (right - left) // 2
         if mid < margin and a[mid] > a[mid + 1]:
-            find = mid
-            right = mid - 1
+            return mid
         elif a[mid] >= a[0]:
             left = mid + 1
         else:
             right = mid - 1
 
-    return find
+    return -1
 
 
 import search
