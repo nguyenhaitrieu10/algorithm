@@ -1,18 +1,14 @@
 import test
-import postfix
-import search
-import helper
-import sort
-import adhoc
+import linked_list as list
 
-N = 20
-# a = [0] * N
-a = helper.init_arr(N)
-a.sort()
-strange = 9
-b = a[:strange]
-c = a[strange:]
-a = c + b
-print(a)
-print(adhoc.sea_search(a, a[11]))
+a1 = [0, 0, 0, 9876, 5432, 1999]
+a2 = [1, 8001]
+l1 = list.create_list(a1)
+l2 = list.create_list(a2)
+list.print_list(l1)
+list.print_list(l2)
+print('-------process-------')
+result = list.addTwoHugeNumbers(l1, l2)
+
+list.print_list(result)
 
