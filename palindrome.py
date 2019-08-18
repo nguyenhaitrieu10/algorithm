@@ -62,7 +62,7 @@ def max_palin_dynamic_memory_o2(s):
     for i in range(l -2, -1, -1):
         for j in range(i + 1, l):
             DP[i][j] = False
-            if s[i] == s[j] and DP[i+1][j-1] == 1:
+            if s[i] == s[j] and DP[i+1][j-1] == True:
                 DP[i][j] = True
                 if max_length < j - i + 1:
                     max_length = j - i + 1
