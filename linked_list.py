@@ -64,20 +64,12 @@ def addTwoHugeNumbers(a, b):
     pa = a_reversed
     pb = b_reversed
 
-
-    print_list(pa)
-    print_list(pb)
-
     result = ListNode(0)
     p = result
     rem = 0
     while pa and pb:
         p.value = (pa.value + pb.value + rem) % 10000
         rem = (pa.value + pb.value + rem) // 10000
-
-        print(p.value)
-        print(rem)
-        print('............')
 
         pa = pa.next
         pb = pb.next
