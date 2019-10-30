@@ -1,0 +1,36 @@
+{
+	"nodes": [{
+		"y": 20,
+		"x": 100,
+		"size": 3,
+		"id": "Root",
+		"label": "Root"
+	}, {
+		"y": 40,
+		"x": 130,
+		"size": 3,
+		"id": "Right",
+		"label": "Right"
+	}, {
+		"y": 40,
+		"x": 70,
+		"size": 3,
+		"id": "Left",
+		"label": "Left"
+	}],
+	"edges": [{
+		"target": "Right",
+		"color": "#94aa2a",
+		"source": "Root",
+		"type": "arrow",
+		"id": "0",
+		"size": 5
+	},{
+		"target": "Left",
+		"color": "#94aa2a",
+		"source": "Root",
+		"type": "arrow",
+		"id": "1",
+		"size": 5
+	}]
+}
