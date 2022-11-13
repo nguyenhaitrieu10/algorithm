@@ -42,14 +42,11 @@ def formatList(l):
 def reverseList(l):
     p = l
     p_prev = None
-    p_next = l.next
     while p != None:
         p_next = p.next
         p.next = p_prev
         p_prev = p
         p = p_next
-
-    p = p_prev
 
     return p_prev
 

@@ -1,4 +1,5 @@
 from collections import deque
+import math
 
 class Node():
     def __init__(self, value = -1):
@@ -223,3 +224,33 @@ def maxSubArray(nums: List[int]) -> int:
     # Our helper function is designed to solve this problem for
     # any array - so just call it using the entire input!
     return findBestSubarray(nums, 0, len(nums) - 1)
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        self.common_root = None
+
+        def recurse_search(node):
+            if node is None:
+                return False
+
+            mid = False
+            if node == p or node == q:
+                mid = True
+
+            left = recurse_search(node.left)
+            right = recurse_search(node.right)
+
+            if mid + left + right >= 2:
+                self.common_root = node
+                return True
+
+            return mid or left or right
+
+        recurse_search(root)
+        return self.common_root

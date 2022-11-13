@@ -67,11 +67,11 @@ def anagram_search(txt, pat):
     count_pat = [0] * MAX_CHAR
     count_window = [0] * MAX_CHAR
 
-    position = []
     for i in range(m):
         count_pat[ord(pat[i])] += 1
         count_window[ord(txt[i])] += 1
 
+    position = []
     if compare(count_pat, count_window, MAX_CHAR):
         position.append(m - 1)
 

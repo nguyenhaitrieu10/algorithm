@@ -1,3 +1,5 @@
+import random
+
 class Solution_shuffle_an_array:
     def __init__(self, nums):
         self.array = nums

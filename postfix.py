@@ -57,6 +57,9 @@ def covert_to_postfix(a):
                 while len(stack) > 0 and pior <= get_prior(stack[-1]):
                     output.append(stack.pop())
                 stack.append(c)
+            print("--------------")
+            print("output", output)
+            print("stack", stack)
 
     if num != "":
         output.append(num)
@@ -119,6 +122,8 @@ def do_calculate1(a, oper):
 
 def calculate(s):
     s = prepocess(s)
+    print("prepocess", s)
     postfix = covert_to_postfix(s)
+    print("postfix", postfix)
     result = cal_postfix(postfix)
     return result
