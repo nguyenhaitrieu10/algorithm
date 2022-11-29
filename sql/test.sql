@@ -8,3 +8,9 @@ FROM (
     GROUP BY symbol, typ
 ) sub
 GROUP BY symbol;
+
+
+select date, price, (
+    select avg(t2.price) from stock_tab t2 where t2.date<=t1.date order by t2.date limit 3
+    ) as avg_price
+from stock_tab t1;

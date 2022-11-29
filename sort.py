@@ -99,7 +99,6 @@ def heap_sort(a):
 
     return a
 
-
 def quick_sort(a):
     left = 0
     right = len(a) - 1
