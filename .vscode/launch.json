@@ -1,0 +1,20 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "HackerRank",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "~/Downloads/algorithm/hackerrank/decibinary.py",
+            "console": "integratedTerminal",
+            "env": {
+                "OUTPUT_PATH": "C:\\Users\\pc\\Downloads\\algorithm\\hackerrank\\tests\\out_decibinary.txt",
+                "INPUT_PATH": "C:\\Users\\pc\\Downloads\\algorithm\\hackerrank\\tests\\decibinary.txt"
+            }
+        }
+    ]
+}
